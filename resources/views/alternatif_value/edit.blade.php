@@ -31,7 +31,7 @@
                     @endphp
 
                     <div class="mb-3">
-                        <label for="{{ $criteria_name }}" class="form-label">{{ $criteria->name }}</label>
+                        <label for="{{ $criteria_name }}" class="form-label">{{ $criteria->name }} <span class="text-danger">*</span></label>
                         <div class="input-group">
                             <input type="number" class="rounded-1 form-control @error($criteria_name) is-invalid @enderror" id="{{ $criteria_name }}" value="{{ $alternatif_criteria[$criteria_name] }}" name="{{ $criteria_name }}">
                             @error($criteria_name)
