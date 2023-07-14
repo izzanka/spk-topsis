@@ -5,6 +5,7 @@
 <div class="mt-2">
     <span class="fs-4">Data Kriteria</span>
     <hr>
+    @include('layout.alert')
     <div class="card rounded-1">
         <div class="card-header">
             <div class="row">

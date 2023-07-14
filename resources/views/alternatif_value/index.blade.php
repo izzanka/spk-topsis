@@ -5,8 +5,8 @@
 <div class="mt-2">
     <span class="fs-4">Data Nilai Alternatif</span>
     <hr>
+    @include('layout.alert')
     <div class="card rounded-1">
-
         <div class="card-body">
             @if($alternatif_criterias)
                 <table class="table table-bordered">

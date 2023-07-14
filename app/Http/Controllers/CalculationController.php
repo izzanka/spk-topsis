@@ -34,7 +34,7 @@ class CalculationController extends Controller
             $criteria_name = Str::slug(strtolower($criteria->name), '_');
 
             if($alternatif_criterias->contains($criteria_name, 0)){
-               return back();
+               return back()->with('message',['text' => 'Harap masukkan semua data nilai alternatif .', 'class' => 'warning']);
             }
         }
 
