@@ -156,13 +156,16 @@ class CalculationController extends Controller
             array_push($this->cmax, 0);
         }
 
-        foreach ($this->normxbobot as $nb)
+        foreach ($this->normxbobot as $index => $nb)
         {
-            if ($this->cmax[0] < $nb[2]) $this->cmax[0] = $nb[2];
-            if ($this->cmax[1] < $nb[3]) $this->cmax[1] = $nb[3];
-            if ($this->cmax[2] < $nb[4]) $this->cmax[2] = $nb[4];
-            if ($this->cmax[3] < $nb[5]) $this->cmax[3] = $nb[5];
-            if ($this->cmax[4] < $nb[6]) $this->cmax[4] = $nb[6];
+            for ($i=0; $i < count($this->kriteria) ; $i++) {
+                if ($this->cmax[$i] < $nb[$i+2]) $this->cmax[$i] = $nb[$i+2];
+                // if ($this->cmax[1] < $nb[3]) $this->cmax[1] = $nb[3];
+                // if ($this->cmax[2] < $nb[4]) $this->cmax[2] = $nb[4];
+                // if ($this->cmax[3] < $nb[5]) $this->cmax[3] = $nb[5];
+                // if ($this->cmax[4] < $nb[6]) $this->cmax[4] = $nb[6];
+            }
+
         }
     }
 
@@ -173,13 +176,16 @@ class CalculationController extends Controller
             array_push($this->cmin, 10);
         }
 
-        foreach ($this->normxbobot as $nb)
+        foreach ($this->normxbobot as $index => $nb)
         {
-            if ($this->cmin[0] > $nb[2]) $this->cmin[0] = $nb[2];
-            if ($this->cmin[1] > $nb[3]) $this->cmin[1] = $nb[3];
-            if ($this->cmin[2] > $nb[4]) $this->cmin[2] = $nb[4];
-            if ($this->cmin[3] > $nb[5]) $this->cmin[3] = $nb[5];
-            if ($this->cmin[4] > $nb[6]) $this->cmin[4] = $nb[6];
+            for ($i=0; $i < count($this->kriteria); $i++) {
+                if ($this->cmin[$i] > $nb[$i+2]) $this->cmin[$i] = $nb[$i+2];
+            }
+            // if ($this->cmin[0] > $nb[2]) $this->cmin[0] = $nb[2];
+            // if ($this->cmin[1] > $nb[3]) $this->cmin[1] = $nb[3];
+            // if ($this->cmin[2] > $nb[4]) $this->cmin[2] = $nb[4];
+            // if ($this->cmin[3] > $nb[5]) $this->cmin[3] = $nb[5];
+            // if ($this->cmin[4] > $nb[6]) $this->cmin[4] = $nb[6];
         }
     }
 

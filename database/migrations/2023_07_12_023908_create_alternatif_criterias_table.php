@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('alternatif_criterias', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('alternatif_id')->constrained();
+            $table->foreignId('alternatif_id')->constrained()->onDelete('cascade');
         });
     }
 

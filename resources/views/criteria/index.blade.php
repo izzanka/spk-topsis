@@ -52,7 +52,7 @@
                             <td class="text-center">
                                 {{ $criteria->code }}
                             </td>
-                            <td class="text-center"> 
+                            <td class="text-center">
                                 {{ $criteria->name }}
                             </td>
                             <td class="text-center">
@@ -63,9 +63,9 @@
                             </td>
                             <td class="text-center">
                                 <a class="btn btn-warning btn-sm" href="{{ route('criterias.edit', $criteria->id) }}"><i class="bi bi-pencil-square me-1"></i> Ubah</a>
-                                <a class="btn btn-danger btn-sm" href="#" onclick="event.preventDefault(); document.getElementById('delete-form').submit();"><i class="bi bi-trash me-1"></i> Hapus</a>
+                                <a class="btn btn-danger btn-sm" href="#" onclick="event.preventDefault(); document.getElementById('delete-form-{{ $criteria->id }}').submit();"><i class="bi bi-trash me-1"></i> Hapus</a>
                             </td>
-                            <form id="delete-form" action="{{ route('criterias.destroy', $criteria->id) }}" method="POST" class="d-none">
+                            <form id="delete-form-{{ $criteria->id }}" action="{{ route('criterias.destroy', $criteria->id) }}" method="POST" class="d-none">
                                 @csrf
                                 @method('DELETE')
                             </form>

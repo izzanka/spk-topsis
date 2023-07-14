@@ -103,11 +103,11 @@ class CriteriaController extends Controller
     {
         $fieldName = strtolower($criteria->name);
 
-        $criteria->delete();
-
         Schema::table($this->table_name, function(Blueprint $table) use ($fieldName){
             $table->dropColumn($fieldName);
         });
+
+        $criteria->delete();
 
         return redirect()->route('criterias.index');
     }

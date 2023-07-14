@@ -53,9 +53,9 @@
                                 @endforeach
                                 <td class="text-center">
                                     <a class="btn btn-warning btn-sm" href="{{ route('alternatif.values.edit', $ac->id) }}"><i class="bi bi-pencil-square me-1"></i> Ubah</a>
-                                    <a class="btn btn-danger btn-sm" href="#" onclick="event.preventDefault(); document.getElementById('delete-form').submit();"><i class="bi bi-trash me-1"></i> Hapus</a>
+                                    <a class="btn btn-danger btn-sm" href="#" onclick="event.preventDefault(); document.getElementById('delete-form-{{ $ac->id }}').submit();"><i class="bi bi-trash me-1"></i> Hapus</a>
                                 </td>
-                                <form id="delete-form" action="" method="POST" class="d-none">
+                                <form id="delete-form-{{ $ac->id }}" action="" method="POST" class="d-none">
                                     @csrf
                                     @method('DELETE')
                                 </form>
