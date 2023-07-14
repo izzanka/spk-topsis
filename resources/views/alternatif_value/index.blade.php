@@ -63,7 +63,7 @@
                         @empty
                             <tr>
                                 <td colspan="{{ $criterias->count() + 4 }}" class="text-center">
-                                    Tidak ada data alternatif.
+                                    Tidak ada data nilai alternatif.
                                 </td>
                             </tr>
                         @endforelse

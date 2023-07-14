@@ -64,7 +64,7 @@
       <div class="card-body">
         <div class="row" @click="open = ! open" type="button">
             <div class="col-10">
-                <b>Matriks Keputusan Ternormalisasi</b>
+                <b>Langkah 1: Menghitung Matriks Keputusan Ternormalisasi</b>
             </div>
             <div class="col-2 text-end">
               <i class="bi bi-caret-down-fill"></i>
@@ -135,7 +135,7 @@
       <div class="card-body">
         <div class="row" @click="open = ! open" type="button">
             <div class="col-10">
-                <b>Matriks Keputusan Ternormalisasi dan Terbobot</b>
+                <b>Langkah 2: Menghitung Matriks Keputusan Ternormalisasi dan Terbobot</b>
             </div>
             <div class="col-2 text-end">
               <i class="bi bi-caret-down-fill"></i>
@@ -195,7 +195,7 @@
       <div class="card-body">
         <div class="row" @click="open = ! open" type="button">
             <div class="col-10">
-                <b>Nilai Solusi Ideal Positif (MAX) dan Solusi Ideal Negatif (MIN)</b>
+                <b>Langkah 3: Mencari Nilai Solusi Ideal Positif (MAX) dan Solusi Ideal Negatif (MIN)</b>
             </div>
             <div class="col-2 text-end">
               <i class="bi bi-caret-down-fill"></i>
@@ -246,7 +246,7 @@
       <div class="card-body">
         <div class="row" @click="open = ! open" type="button">
             <div class="col-10">
-                <b>D+ dan D- Untuk Setiap Alternatif</b>
+                <b>Langkah 4: Menghitung Nilai D+ dan D- Untuk Setiap Alternatif</b>
             </div>
             <div class="col-2 text-end">
               <i class="bi bi-caret-down-fill"></i>
@@ -313,7 +313,7 @@
       <div class="card-body">
         <div class="row" @click="open = ! open" type="button">
             <div class="col-10">
-                <b>Hasil Preferensi</b>
+                <b>Langkah 5: Menghitung Hasil Preferensi</b>
             </div>
             <div class="col-2 text-end">
               <i class="bi bi-caret-down-fill"></i>

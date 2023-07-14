@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Alternatif;
+use App\Models\AlternatifCriteria;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -26,7 +27,11 @@ class AlternatifController extends Controller
             'name' => ['required','string','max:25','unique:alternatifs,name']
         ]);
 
-        Alternatif::create($validated);
+        $alternatif = Alternatif::create($validated);
+
+        AlternatifCriteria::create([
+            'alternatif_id' => $alternatif->id,
+        ]);
 
         return redirect()->route('alternatifs.index');
     }

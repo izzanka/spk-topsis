@@ -46,18 +46,18 @@ class CriteriaController extends Controller
         $alternatifs = Alternatif::get();
         $alternatif_criterias = AlternatifCriteria::get();
 
-        foreach($alternatifs as $alternatif)
-        {
-            if($alternatif_criterias->contains($alternatif->id)){
+        // foreach($alternatifs as $alternatif)
+        // {
+        //     if($alternatif_criterias->contains($alternatif->id)){
 
-            }else{
+        //     }else{
 
-                AlternatifCriteria::create([
-                    'alternatif_id' => $alternatif->id,
-                ]);
+        //         AlternatifCriteria::create([
+        //             'alternatif_id' => $alternatif->id,
+        //         ]);
 
-            }
-        }
+        //     }
+        // }
 
         return redirect()->route('criterias.index');
     }
