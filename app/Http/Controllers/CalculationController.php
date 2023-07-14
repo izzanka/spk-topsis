@@ -55,7 +55,6 @@ class CalculationController extends Controller
             {
                 if($ac->alternatif->code == $value[0])
                 {
-
                     foreach($criterias as $criteria)
                     {
                         $criteria_name = Str::slug(strtolower($criteria->name), '_');

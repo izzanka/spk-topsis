@@ -68,9 +68,7 @@ class CriteriaController extends Controller
 
         try {
 
-            $criteria_name = strtolower($criteria->name);
-
-            $oldFieldName = Str::slug($criteria_name, '_');
+            $oldFieldName = Str::slug(strtolower($criteria->name), '_');
             $fieldName = Str::slug($validated['name'], '_');
 
             $criteria->update($validated);
@@ -92,7 +90,8 @@ class CriteriaController extends Controller
     public function destroy(Criteria $criteria)
     {
         try {
-            $fieldName = strtolower($criteria->name);
+
+            $fieldName = Str::slug(strtolower($criteria->name), '_');
 
             Schema::table($this->table_name, function(Blueprint $table) use ($fieldName){
                 $table->dropColumn($fieldName);
