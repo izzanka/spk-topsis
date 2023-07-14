@@ -27,13 +27,19 @@ class AlternatifController extends Controller
             'name' => ['required','string','max:25','unique:alternatifs,name']
         ]);
 
-        $alternatif = Alternatif::create($validated);
+        try {
 
-        AlternatifCriteria::create([
-            'alternatif_id' => $alternatif->id,
-        ]);
+            $alternatif = Alternatif::create($validated);
 
-        return redirect()->route('alternatifs.index');
+            AlternatifCriteria::create([
+                'alternatif_id' => $alternatif->id,
+            ]);
+
+            return redirect()->route('alternatifs.index')->with('message',['text' => 'Data alternatif berhasil disimpan.', 'class' => 'success']);
+
+        } catch (\Throwable $th) {
+            return redirect()->route('alternatifs.index')->with('message',['text' => $th->getMessage(), 'class' => 'danger']);
+        }
     }
 
     public function edit(Alternatif $alternatif)
@@ -47,16 +53,28 @@ class AlternatifController extends Controller
             'name' => ['required','string','max:25', Rule::unique('alternatifs')->ignore($alternatif->id)]
         ]);
 
-        $alternatif->update($validated);
+        try {
 
-        return redirect()->route('alternatifs.index');
+            $alternatif->update($validated);
+
+            return redirect()->route('alternatifs.index')->with('message',['text' => 'Data alternatif berhasil diubah.', 'class' => 'success']);
+
+        } catch (\Throwable $th) {
+            return redirect()->route('alternatifs.index')->with('message',['text' => $th->getMessage(), 'class' => 'danger']);
+        }
     }
 
     public function destroy(Alternatif $alternatif)
     {
-        $alternatif->delete();
+        try {
 
-        return redirect()->route('alternatifs.index');
+            $alternatif->delete();
+
+            return redirect()->route('alternatifs.index')->with('message',['text' => 'Data alternatif berhasil dihapus.', 'class' => 'success']);
+
+        } catch (\Throwable $th) {
+            return redirect()->route('alternatifs.index')->with('message',['text' => $th->getMessage(), 'class' => 'danger']);
+        }
     }
 }
 

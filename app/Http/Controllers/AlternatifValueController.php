@@ -15,27 +15,7 @@ class AlternatifValueController extends Controller
         $criterias = Criteria::get();
         $alternatif_criterias = AlternatifCriteria::get();
 
-        // dd($alternatif_criterias);
-        // $alternatif_values = [];
-
-        // foreach($alternatifs as $index => $alternatif)
-        // {
-        //     array_push($alternatif_values, [$alternatif->id, $alternatif->code, $alternatif->name]);
-        // }
-
-        // foreach($alternatif_criterias as $ac)
-        // {
-        //     foreach($alternatif_values as $index => $value)
-        //     {
-        //         if($ac->alternatif->code == $value[1])
-        //         {
-        //             array_push($alternatif_values[$index], $ac->value);
-        //         }
-        //     }
-        // }
-
         return view('alternatif_value.index', compact('alternatifs','criterias','alternatif_criterias'));
-
     }
 
     public function edit(AlternatifCriteria $alternatif_criteria)
@@ -51,10 +31,16 @@ class AlternatifValueController extends Controller
         }
 
         $validated = $request->validate($valids);
-        
-        $alternatif_criteria->update($validated);
 
-        return redirect()->route('alternatif.values.index');
+        try {
+
+            $alternatif_criteria->update($validated);
+
+            return redirect()->route('alternatif.values.index')->with('message',['text' => 'Data nilai alternatif berhasil diubah.', 'class' => 'success']);
+
+        } catch (\Throwable $th) {
+            return redirect()->route('alternatif.values.index')->with('message',['text' => $th->getMessage(), 'class' => 'success']);
+        }
     }
 
 }

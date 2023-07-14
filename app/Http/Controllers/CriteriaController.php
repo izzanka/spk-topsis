@@ -35,31 +35,21 @@ class CriteriaController extends Controller
             'weight' => ['required','integer','min:1'],
         ]);
 
-        Criteria::create($validated);
+        try {
 
-        $fieldName = Str::slug($validated['name'], '_');
+            Criteria::create($validated);
 
-        Schema::table($this->table_name, function(Blueprint $table) use ($fieldName){
-            $table->integer($fieldName)->default(0);
-        });
+            $fieldName = Str::slug($validated['name'], '_');
 
-        $alternatifs = Alternatif::get();
-        $alternatif_criterias = AlternatifCriteria::get();
+            Schema::table($this->table_name, function(Blueprint $table) use ($fieldName){
+                $table->integer($fieldName)->default(0);
+            });
 
-        // foreach($alternatifs as $alternatif)
-        // {
-        //     if($alternatif_criterias->contains($alternatif->id)){
+            return redirect()->route('criterias.index')->with('message',['text' => 'Data kriteria berhasil disimpan.', 'class' => 'success']);
 
-        //     }else{
-
-        //         AlternatifCriteria::create([
-        //             'alternatif_id' => $alternatif->id,
-        //         ]);
-
-        //     }
-        // }
-
-        return redirect()->route('criterias.index');
+        } catch (\Throwable $th) {
+            return redirect()->route('criterias.index')->with('message',['text' => $th->getMessage(), 'class' => 'danger']);
+        }
     }
 
     public function edit(Criteria $criteria)
@@ -76,34 +66,45 @@ class CriteriaController extends Controller
             'weight' => ['required','integer','min:1'],
         ]);
 
-        $criteria_name = strtolower($criteria->name);
+        try {
 
-        $oldFieldName = Str::slug($criteria_name, '_');
-        $fieldName = Str::slug($validated['name'], '_');
+            $criteria_name = strtolower($criteria->name);
 
-        $criteria->update($validated);
+            $oldFieldName = Str::slug($criteria_name, '_');
+            $fieldName = Str::slug($validated['name'], '_');
 
-        if($oldFieldName != $fieldName)
-        {
-            Schema::table($this->table_name, function(Blueprint $table) use ($oldFieldName, $fieldName){
-                $table->renameColumn($oldFieldName, $fieldName);
-            });
+            $criteria->update($validated);
+
+            if($oldFieldName != $fieldName)
+            {
+                Schema::table($this->table_name, function(Blueprint $table) use ($oldFieldName, $fieldName){
+                    $table->renameColumn($oldFieldName, $fieldName);
+                });
+            }
+
+            return redirect()->route('criterias.index')->with('message',['text' => 'Data kriteria berhasil diubah.', 'class' => 'success']);
+
+        } catch (\Throwable $th) {
+            return redirect()->route('criterias.index')->with('message',['text' => $th->getMessage(), 'class' => 'danger']);
         }
-
-        return redirect()->route('criterias.index');
     }
 
     public function destroy(Criteria $criteria)
     {
-        $fieldName = strtolower($criteria->name);
+        try {
+            $fieldName = strtolower($criteria->name);
 
-        Schema::table($this->table_name, function(Blueprint $table) use ($fieldName){
-            $table->dropColumn($fieldName);
-        });
+            Schema::table($this->table_name, function(Blueprint $table) use ($fieldName){
+                $table->dropColumn($fieldName);
+            });
 
-        $criteria->delete();
+            $criteria->delete();
 
-        return redirect()->route('criterias.index');
+            return redirect()->route('criterias.index')->with('message',['text' => 'Data kriteria berhasil dihapus.', 'class' => 'success']);
+
+        } catch (\Throwable $th) {
+            return redirect()->route('criterias.index')->with('message',['text' => $th->getMessage(), 'class' => 'danger']);
+        }
     }
 }
 

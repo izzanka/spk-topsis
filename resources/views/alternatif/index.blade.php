@@ -5,6 +5,7 @@
 <div class="mt-2">
     <span class="fs-4">Data Alternatif</span>
     <hr>
+    @include('layout.alert')
     <div class="card rounded-1">
         <div class="card-header">
             <div class="row">
@@ -51,9 +52,9 @@
                             </td>
                             <td class="text-center">
                                 <a class="btn btn-warning btn-sm" href="{{ route('alternatifs.edit', $alternatif->id) }}"><i class="bi bi-pencil-square me-1"></i> Ubah</a>
-                                <a class="btn btn-danger btn-sm" href="#" onclick="event.preventDefault(); document.getElementById('delete-form').submit();"><i class="bi bi-trash me-1"></i> Hapus</a>
+                                <a class="btn btn-danger btn-sm" href="#" onclick="event.preventDefault(); document.getElementById('delete-form-{{ $alternatif->id }}').submit();"><i class="bi bi-trash me-1"></i> Hapus</a>
                             </td>
-                            <form id="delete-form" action="{{ route('alternatifs.destroy', $alternatif->id) }}" method="POST" class="d-none">
+                            <form id="delete-form-{{ $alternatif->id }}" action="{{ route('alternatifs.destroy', $alternatif->id) }}" method="POST" class="d-none">
                                 @csrf
                                 @method('DELETE')
                             </form>

@@ -31,10 +31,14 @@
             </a>
 
             <ul class="nav nav-pills">
-            <li class="nav-item"><a href="{{ route('alternatifs.index') }}" class="nav-link {{ request()->route()->named('alternatifs.index') || request()->route()->named('alternatifs.create') || request()->route()->named('alternatifs.edit') ? 'active' : '' }}">Alternatif</a></li>
-            <li class="nav-item"><a href="{{ route('criterias.index') }}" class="nav-link {{ request()->route()->named('criterias.index') || request()->route()->named('criterias.create') || request()->route()->named('criterias.edit') ? 'active' : '' }}">Kriteria</a></li>
-            <li class="nav-item"><a href="{{ route('alternatif.values.index') }}" class="nav-link {{ request()->route()->named('alternatif.values.index') || request()->route()->named('alternatif.values.edit') ? 'active' : '' }}">Nilai</a></li>
-            <li class="nav-item"><a href="{{ route('calculations.index') }}" class="nav-link {{ request()->route()->named('calculations.index') ? 'active' : '' }}">Perhitungan</a></li>
+                @guest
+                    <li class="nav-item"><a href="{{ route('alternatifs.index') }}" class="nav-link {{ request()->route()->named('alternatifs.index') || request()->route()->named('alternatifs.create') || request()->route()->named('alternatifs.edit') ? 'active' : '' }}">Alternatif</a></li>
+                    <li class="nav-item"><a href="{{ route('criterias.index') }}" class="nav-link {{ request()->route()->named('criterias.index') || request()->route()->named('criterias.create') || request()->route()->named('criterias.edit') ? 'active' : '' }}">Kriteria</a></li>
+                    <li class="nav-item"><a href="{{ route('alternatif.values.index') }}" class="nav-link {{ request()->route()->named('alternatif.values.index') || request()->route()->named('alternatif.values.edit') ? 'active' : '' }}">Nilai</a></li>
+                    <li class="nav-item"><a href="{{ route('calculations.index') }}" class="nav-link {{ request()->route()->named('calculations.index') ? 'active' : '' }}">Perhitungan</a></li>
+                @else
+                    <li class="nav-item"><a href="#" class="nav-link text-dark">Logout</a></li>
+                @endguest
             </ul>
         </header>
 

@@ -313,7 +313,7 @@
       <div class="card-body">
         <div class="row" @click="open = ! open" type="button">
             <div class="col-10">
-                <b>Langkah 5: Menghitung Hasil Preferensi</b>
+                <b>Langkah 5: Menghitung Nilai Preferensi</b>
             </div>
             <div class="col-2 text-end">
               <i class="bi bi-caret-down-fill"></i>

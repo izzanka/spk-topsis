@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AlternatifController;
 use App\Http\Controllers\AlternatifValueController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CalculationController;
 use App\Http\Controllers\CriteriaController;
 use Illuminate\Support\Facades\Route;
@@ -20,6 +21,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
+
+Route::get('/login', [AuthController::class, 'login_index'])->name('login.index');
+Route::post('/login', [AuthController::class, 'login_store'])->name('login.store');
 
 Route::resource('alternatifs', AlternatifController::class);
 Route::resource('criterias', CriteriaController::class);

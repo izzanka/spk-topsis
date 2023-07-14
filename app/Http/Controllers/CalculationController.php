@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Alternatif;
 use App\Models\AlternatifCriteria;
 use App\Models\Criteria;
-use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 class CalculationController extends Controller
@@ -160,10 +159,6 @@ class CalculationController extends Controller
         {
             for ($i=0; $i < count($this->kriteria) ; $i++) {
                 if ($this->cmax[$i] < $nb[$i+2]) $this->cmax[$i] = $nb[$i+2];
-                // if ($this->cmax[1] < $nb[3]) $this->cmax[1] = $nb[3];
-                // if ($this->cmax[2] < $nb[4]) $this->cmax[2] = $nb[4];
-                // if ($this->cmax[3] < $nb[5]) $this->cmax[3] = $nb[5];
-                // if ($this->cmax[4] < $nb[6]) $this->cmax[4] = $nb[6];
             }
 
         }
@@ -181,11 +176,6 @@ class CalculationController extends Controller
             for ($i=0; $i < count($this->kriteria); $i++) {
                 if ($this->cmin[$i] > $nb[$i+2]) $this->cmin[$i] = $nb[$i+2];
             }
-            // if ($this->cmin[0] > $nb[2]) $this->cmin[0] = $nb[2];
-            // if ($this->cmin[1] > $nb[3]) $this->cmin[1] = $nb[3];
-            // if ($this->cmin[2] > $nb[4]) $this->cmin[2] = $nb[4];
-            // if ($this->cmin[3] > $nb[5]) $this->cmin[3] = $nb[5];
-            // if ($this->cmin[4] > $nb[6]) $this->cmin[4] = $nb[6];
         }
     }
 
