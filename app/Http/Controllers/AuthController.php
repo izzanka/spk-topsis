@@ -22,7 +22,7 @@ class AuthController extends Controller
         if(Auth::attempt($credentials)){
             $request->session()->regenerate();
 
-            return view('home');
+            return redirect()->route('home');
         }
 
         return back()->with('message',['text' => 'Username atau password salah.', 'class' => 'danger']);
@@ -36,6 +36,6 @@ class AuthController extends Controller
 
         $request->session()->regenerateToken();
 
-        return view('home');
+        return redirect()->route('home');
     }
 }

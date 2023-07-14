@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 
 Route::get('/login', [AuthController::class, 'login_index'])->name('login');
 Route::post('/login', [AuthController::class, 'login_store'])->name('login.store');

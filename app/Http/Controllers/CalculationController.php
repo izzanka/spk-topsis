@@ -29,12 +29,16 @@ class CalculationController extends Controller
         $criterias = Criteria::select(['name', 'weight', 'attribute'])->get();
         $alternatifs = Alternatif::get();
 
+        if($alternatif_criterias->isEmpty()){
+            return redirect()->route('alternatif.values.index')->with('message',['text' => 'Harap masukkan semua data nilai alternatif.', 'class' => 'warning']);
+        }
+
         foreach($criterias as $criteria)
         {
             $criteria_name = Str::slug(strtolower($criteria->name), '_');
 
             if($alternatif_criterias->contains($criteria_name, 0)){
-               return back()->with('message',['text' => 'Harap masukkan semua data nilai alternatif.', 'class' => 'warning']);
+               return redirect()->route('alternatif.values.index')->with('message',['text' => 'Harap masukkan semua data nilai alternatif.', 'class' => 'warning']);
             }
         }
 
