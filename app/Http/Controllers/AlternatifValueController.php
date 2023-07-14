@@ -39,7 +39,7 @@ class AlternatifValueController extends Controller
             return redirect()->route('alternatif.values.index')->with('message',['text' => 'Data nilai alternatif berhasil diubah.', 'class' => 'success']);
 
         } catch (\Throwable $th) {
-            return redirect()->route('alternatif.values.index')->with('message',['text' => $th->getMessage(), 'class' => 'success']);
+            return redirect()->route('alternatif.values.index')->with('message',['text' => 'Data nilai alternatif gagal dihapus', 'class' => 'success']);
         }
     }
 

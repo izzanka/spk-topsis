@@ -38,7 +38,7 @@ class AlternatifController extends Controller
             return redirect()->route('alternatifs.index')->with('message',['text' => 'Data alternatif berhasil disimpan.', 'class' => 'success']);
 
         } catch (\Throwable $th) {
-            return redirect()->route('alternatifs.index')->with('message',['text' => $th->getMessage(), 'class' => 'danger']);
+            return redirect()->route('alternatifs.index')->with('message',['text' => 'Data alternatif gagal disimpan', 'class' => 'danger']);
         }
     }
 
@@ -60,7 +60,7 @@ class AlternatifController extends Controller
             return redirect()->route('alternatifs.index')->with('message',['text' => 'Data alternatif berhasil diubah.', 'class' => 'success']);
 
         } catch (\Throwable $th) {
-            return redirect()->route('alternatifs.index')->with('message',['text' => $th->getMessage(), 'class' => 'danger']);
+            return redirect()->route('alternatifs.index')->with('message',['text' => 'Data alternatif gagal diubah', 'class' => 'danger']);
         }
     }
 
@@ -73,7 +73,7 @@ class AlternatifController extends Controller
             return redirect()->route('alternatifs.index')->with('message',['text' => 'Data alternatif berhasil dihapus.', 'class' => 'success']);
 
         } catch (\Throwable $th) {
-            return redirect()->route('alternatifs.index')->with('message',['text' => $th->getMessage(), 'class' => 'danger']);
+            return redirect()->route('alternatifs.index')->with('message',['text' => 'Data alternatif gagal dihapus', 'class' => 'danger']);
         }
     }
 }

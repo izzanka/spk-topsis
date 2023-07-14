@@ -48,7 +48,7 @@ class CriteriaController extends Controller
             return redirect()->route('criterias.index')->with('message',['text' => 'Data kriteria berhasil disimpan.', 'class' => 'success']);
 
         } catch (\Throwable $th) {
-            return redirect()->route('criterias.index')->with('message',['text' => $th->getMessage(), 'class' => 'danger']);
+            return redirect()->route('criterias.index')->with('message',['text' => 'Data kriteria gagal disimpan', 'class' => 'danger']);
         }
     }
 
@@ -85,7 +85,7 @@ class CriteriaController extends Controller
             return redirect()->route('criterias.index')->with('message',['text' => 'Data kriteria berhasil diubah.', 'class' => 'success']);
 
         } catch (\Throwable $th) {
-            return redirect()->route('criterias.index')->with('message',['text' => $th->getMessage(), 'class' => 'danger']);
+            return redirect()->route('criterias.index')->with('message',['text' => 'Data kriteria gagal diubah', 'class' => 'danger']);
         }
     }
 
@@ -103,7 +103,7 @@ class CriteriaController extends Controller
             return redirect()->route('criterias.index')->with('message',['text' => 'Data kriteria berhasil dihapus.', 'class' => 'success']);
 
         } catch (\Throwable $th) {
-            return redirect()->route('criterias.index')->with('message',['text' => $th->getMessage(), 'class' => 'danger']);
+            return redirect()->route('criterias.index')->with('message',['text' => 'Data kriteria gagal dihapus', 'class' => 'danger']);
         }
     }
 }
