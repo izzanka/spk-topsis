@@ -70,33 +70,27 @@ class CriteriaController extends Controller
 
     public function update(Request $request, Criteria $criteria)
     {
-        try {
+        $validated = $request->validate([
+            'name' => ['required','string','max:25', Rule::unique('criterias')->ignore($criteria->id)],
+            'attribute' => ['required','string'],
+            'weight' => ['required','integer','min:1'],
+        ]);
 
-            $validated = $request->validate([
-                'name' => ['required','string','max:25', Rule::unique('criterias')->ignore($criteria->id)],
-                'attribute' => ['required','string'],
-                'weight' => ['required','integer','min:1'],
-            ]);
+        $criteria_name = strtolower($criteria->name);
 
-            $criteria_name = strtolower($criteria->name);
+        $oldFieldName = Str::slug($criteria_name, '_');
+        $fieldName = Str::slug($validated['name'], '_');
 
-            $oldFieldName = Str::slug($criteria_name, '_');
-            $fieldName = Str::slug($validated['name'], '_');
+        $criteria->update($validated);
 
-            $criteria->update($validated);
-
-            if($oldFieldName != $fieldName)
-            {
-                Schema::table($this->table_name, function(Blueprint $table) use ($oldFieldName, $fieldName){
-                    $table->renameColumn($oldFieldName, $fieldName);
-                });
-            }
-
-            return redirect()->route('criterias.index');
-
-        } catch (\Throwable $th) {
-            dd($th->getMessage());
+        if($oldFieldName != $fieldName)
+        {
+            Schema::table($this->table_name, function(Blueprint $table) use ($oldFieldName, $fieldName){
+                $table->renameColumn($oldFieldName, $fieldName);
+            });
         }
+
+        return redirect()->route('criterias.index');
     }
 
     public function destroy(Criteria $criteria)

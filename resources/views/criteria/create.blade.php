@@ -34,8 +34,8 @@
                 <div class="mb-3">
                     <label for="attribute" class="form-label">Atribut <span class="text-danger">*</span></label>
                     <div class="input-group">
-                        <select class="form-select" name="attribute">
-                            <option selected value="">Pilih Atribut...</option>
+                        <select class="form-select @error('attribute') is-invalid @enderror" name="attribute">
+                            <option selected disabled value="">Pilih Atribut...</option>
                             <option value="Cost">Cost</option>
                             <option value="Profit">Profit</option>
                         </select>

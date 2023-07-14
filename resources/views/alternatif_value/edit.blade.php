@@ -33,10 +33,16 @@
                     <div class="mb-3">
                         <label for="{{ $criteria_name }}" class="form-label">{{ $criteria->name }}</label>
                         <div class="input-group">
-                        <input type="number" class="rounded-1 form-control" id="{{ $criteria_name }}" value="{{ $alternatif_criteria[$criteria_name] }}" name="{{ $criteria_name }}">
+                            <input type="number" class="rounded-1 form-control @error($criteria_name) is-invalid @enderror" id="{{ $criteria_name }}" value="{{ $alternatif_criteria[$criteria_name] }}" name="{{ $criteria_name }}">
+                            @error($criteria_name)
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                     </div>
                 @endforeach
+
                 <div class="mb-3">
                     <button class="btn btn-success btn-sm" type="submit"><i class="bi bi-download me-1"></i> Simpan</button>
                     <a class="btn btn-secondary btn-sm" href="{{ route('alternatif.values.index') }}"><i class="bi bi-skip-backward me-1"></i> Kembali</a>
