@@ -30,7 +30,7 @@ class CalculationController extends Controller
         $alternatifs = Alternatif::get();
 
         if($alternatif_criterias->isEmpty()){
-            return redirect()->route('alternatif.values.index')->with('message',['text' => 'Harap masukkan semua data nilai alternatif.', 'class' => 'warning']);
+            return redirect()->route('alternatif.values.index')->with('message',['text' => 'Harap masukkan data nilai alternatif terlebih dahulu.', 'class' => 'warning']);
         }
 
         foreach($criterias as $criteria)

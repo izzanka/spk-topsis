@@ -12,7 +12,7 @@
                 <div class="mb-3">
                     <label for="code" class="form-label">Kode <span class="text-danger">*</span></label>
                     <div class="input-group">
-                      <input type="text" class="rounded-1 form-control @error('code') is-invalid @enderror" id="code" name="code">
+                      <input type="text" class="rounded-1 form-control @error('code') is-invalid @enderror" id="code" name="code" value="{{ old('code') }}">
                       @error('code')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -23,7 +23,7 @@
                 <div class="mb-3">
                     <label for="name" class="form-label">Nama Alternatif <span class="text-danger">*</span></label>
                     <div class="input-group">
-                      <input type="text" class="rounded-1 form-control @error('name') is-invalid @enderror" id="name" name="name">
+                      <input type="text" class="rounded-1 form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}">
                       @error('name')
                         <span class="invalid-feedback">
                             {{ $message }}

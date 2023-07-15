@@ -19,7 +19,7 @@
                 <div class="mb-3">
                     <label for="name" class="form-label">Nama Kriteria <span class="text-danger">*</span></label>
                     <div class="input-group">
-                      <input type="text" class="rounded-1 form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ $criteria->name ?? old('name') }}">
+                      <input type="text" class="rounded-1 form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ $criteria->name }}">
                       @error('name')
                         <span class="invalid-feedback">
                             {{ $message }}
@@ -53,7 +53,7 @@
                 <div class="mb-3">
                     <label for="weight" class="form-label">Bobot <span class="text-danger">*</span></label>
                     <div class="input-group">
-                      <input type="text" class="rounded-1 form-control @error('weight') is-invalid @enderror" id="weight" name="weight" value="{{ $criteria->weight ?? old('weight') }}">
+                      <input type="text" class="rounded-1 form-control @error('weight') is-invalid @enderror" id="weight" name="weight" value="{{ $criteria->weight }}">
                       @error('weight')
                         <span class="invalid-feedback">
                             {{ $message }}

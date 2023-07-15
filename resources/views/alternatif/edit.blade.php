@@ -19,7 +19,7 @@
                 <div class="mb-3">
                     <label for="name" class="form-label">Nama Alternatif <span class="text-danger">*</span></label>
                     <div class="input-group">
-                      <input type="text" class="rounded-1 form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ $alternatif->name ?? old('name')}}">
+                      <input type="text" class="rounded-1 form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ $alternatif->name }}">
                       @error('name')
                         <span class="invalid-feedback">
                             {{ $message }}
