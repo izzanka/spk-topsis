@@ -14,46 +14,49 @@
             </div>
         </div>
         <div x-show="open" x-transition>
-            <table class="table table-bordered mt-4">
-                <thead>
-                    <tr>
-                        <th scope="col" class="text-center">
-                            No
-                        </th>
-                        <th scope="col" class="text-center">
-                            Kode
-                        </th>
-                        <th scope="col" class="text-center">
-                            Nama Alternatif
-                        </th>
-                        @foreach ($kriteria as $k)
-                        <th scope="col" class="text-center">
-                            {{ $k['name']}}
-                        </th>
-                        @endforeach
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($alternatif_kriteria as $index => $ak)
+            <div class="table-responsive">
+                <table class="table table-bordered mt-4">
+                    <thead>
                         <tr>
-                            <td class="text-center">
-                                {{ $loop->iteration }}
-                            </td>
-                            <td class="text-center">
-                                {{ $ak[0] }}
-                            </td>
-                            <td class="text-center">
-                                {{ $ak[1] }}
-                            </td>
-                            @for ($i=0; $i < count($kriteria); $i++)
-                                <td class="text-center">
-                                    {{ $ak[$i+2] }}
-                                </td>
-                            @endfor
+                            {{-- <th scope="col" class="text-center">
+                                No
+                            </th> --}}
+                            {{-- <th scope="col" class="text-center">
+                                Kode
+                            </th> --}}
+                            <th scope="col" class="text-center">
+                                Nama Alternatif
+                            </th>
+                            @foreach ($kriteria as $k)
+                            <th scope="col" class="text-center">
+                                {{ $k['name']}}
+                            </th>
+                            @endforeach
                         </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach ($alternatif_kriteria as $index => $ak)
+                            <tr>
+                                {{-- <td class="text-center">
+                                    {{ $loop->iteration }}
+                                </td> --}}
+                                {{-- <td class="text-center">
+                                    {{ $ak[0] }}
+                                </td> --}}
+                                <td class="text-center">
+                                    {{ $ak[1] }}
+                                </td>
+                                @for ($i=0; $i < count($kriteria); $i++)
+                                    <td class="text-center">
+                                        {{ $ak[$i+2] }}
+                                    </td>
+                                @endfor
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+
         </div>
       </div>
     </div>
@@ -74,57 +77,59 @@
             <div class="text-center mt-4">
                 <img src="{{ asset('storage/images/4.png') }}" alt="">
             </div>
-            <table class="table table-bordered mt-4">
-                <thead>
-                    <tr>
-                        <th scope="col" class="text-center">
-                            No
-                        </th>
-                        <th scope="col" class="text-center">
-                            Kode
-                        </th>
-                        <th scope="col" class="text-center">
-                            Nama Alternatif
-                        </th>
-                        @foreach ($kriteria as $k)
-                        <th scope="col" class="text-center">
-                            {{ $k['name']}}
-                        </th>
-                        @endforeach
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($normalisasi as $index => $n)
+            <div class="table-responsive">
+                <table class="table table-bordered mt-4">
+                    <thead>
                         <tr>
-                            <td class="text-center">
-                                {{ $loop->iteration }}
-                            </td>
-                            <td class="text-center">
-                                {{ $n[0] }}
-                            </td>
-                            <td class="text-center">
-                                {{ $n[1] }}
-                            </td>
-                            @for ($i=0; $i < count($kriteria); $i++)
-                                <td class="text-center">
-                                    {{ $n[$i+2] }}
-                                </td>
-                            @endfor
-                        </tr>
-                    @endforeach
-                    <tr>
-                        <th class="text-center" colspan="3">
-                            Bobot
-                        </th>
-
-                        @foreach ($bobot as $index => $b)
-                            <th class="text-center">
-                                {{ $bobot[$index] }}
+                            {{-- <th scope="col" class="text-center">
+                                No
+                            </th> --}}
+                            {{-- <th scope="col" class="text-center">
+                                Kode
+                            </th> --}}
+                            <th scope="col" class="text-center">
+                                Nama Alternatif
                             </th>
+                            @foreach ($kriteria as $k)
+                            <th scope="col" class="text-center">
+                                {{ $k['name']}}
+                            </th>
+                            @endforeach
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($normalisasi as $index => $n)
+                            <tr>
+                                {{-- <td class="text-center">
+                                    {{ $loop->iteration }}
+                                </td> --}}
+                                {{-- <td class="text-center">
+                                    {{ $n[0] }}
+                                </td> --}}
+                                <td class="text-center">
+                                    {{ $n[1] }}
+                                </td>
+                                @for ($i=0; $i < count($kriteria); $i++)
+                                    <td class="text-center">
+                                        {{ $n[$i+2] }}
+                                    </td>
+                                @endfor
+                            </tr>
                         @endforeach
-                    </tr>
-                </tbody>
-            </table>
+                        <tr>
+                            <th class="text-center" colspan="1">
+                                Bobot
+                            </th>
+
+                            @foreach ($bobot as $index => $b)
+                                <th class="text-center">
+                                    {{ $bobot[$index] }}
+                                </th>
+                            @endforeach
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
       </div>
     </div>
@@ -145,46 +150,48 @@
             <div class="text-center mt-4">
                 <img src="{{ asset('storage/images/5.png') }}" alt="">
             </div>
-            <table class="table table-bordered mt-4">
-                <thead>
-                    <tr>
-                        <th scope="col" class="text-center">
-                            No
-                        </th>
-                        <th scope="col" class="text-center">
-                            Kode
-                        </th>
-                        <th scope="col" class="text-center">
-                            Nama Alternatif
-                        </th>
-                        @foreach ($kriteria as $k)
-                        <th scope="col" class="text-center">
-                            {{ $k['name']}}
-                        </th>
-                        @endforeach
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($normxbobot as $index => $nb)
+            <div class="table-responsive">
+                <table class="table table-bordered mt-4">
+                    <thead>
                         <tr>
-                            <td class="text-center">
-                                {{ $loop->iteration }}
-                            </td>
-                            <td class="text-center">
-                                {{ $nb[0] }}
-                            </td>
-                            <td class="text-center">
-                                {{ $nb[1] }}
-                            </td>
-                            @for ($i=0; $i < count($kriteria); $i++)
-                                <td class="text-center">
-                                    {{ $nb[$i+2] }}
-                                </td>
-                            @endfor
+                            {{-- <th scope="col" class="text-center">
+                                No
+                            </th> --}}
+                            {{-- <th scope="col" class="text-center">
+                                Kode
+                            </th> --}}
+                            <th scope="col" class="text-center">
+                                Nama Alternatif
+                            </th>
+                            @foreach ($kriteria as $k)
+                            <th scope="col" class="text-center">
+                                {{ $k['name']}}
+                            </th>
+                            @endforeach
                         </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach ($normxbobot as $index => $nb)
+                            <tr>
+                                {{-- <td class="text-center">
+                                    {{ $loop->iteration }}
+                                </td> --}}
+                                {{-- <td class="text-center">
+                                    {{ $nb[0] }}
+                                </td> --}}
+                                <td class="text-center">
+                                    {{ $nb[1] }}
+                                </td>
+                                @for ($i=0; $i < count($kriteria); $i++)
+                                    <td class="text-center">
+                                        {{ $nb[$i+2] }}
+                                    </td>
+                                @endfor
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
       </div>
     </div>
@@ -206,36 +213,38 @@
                 <img src="{{ asset('storage/images/6-1.png') }}" alt="">
                 <img src="{{ asset('storage/images/6-2.png') }}" alt="" class="ms-4">
             </div>
-            <table class="table table-bordered mt-4">
-                <thead>
-                    <tr>
-                        <th></th>
-                        @foreach ($kriteria as $k)
-                        <th scope="col" class="text-center">
-                            {{ $k['name']}}
-                        </th>
-                        @endforeach
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="text-center">
-                        <th>MAX (y+)</th>
-                        @foreach ($ymax as $index => $ym )
-                            <td class="text-center">
-                                {{ $ymax[$index] }}
-                            </td>
-                        @endforeach
-                    </tr>
-                    <tr class="text-center">
-                        <th>MIN (y-)</th>
-                        @foreach ($ymin as $index => $ym )
-                            <td class="text-center">
-                                {{ $ymin[$index] }}
-                            </td>
-                        @endforeach
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-responsive">
+                <table class="table table-bordered mt-4">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            @foreach ($kriteria as $k)
+                            <th scope="col" class="text-center">
+                                {{ $k['name']}}
+                            </th>
+                            @endforeach
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="text-center">
+                            <th>MAX (y+)</th>
+                            @foreach ($ymax as $index => $ym )
+                                <td class="text-center">
+                                    {{ $ymax[$index] }}
+                                </td>
+                            @endforeach
+                        </tr>
+                        <tr class="text-center">
+                            <th>MIN (y-)</th>
+                            @foreach ($ymin as $index => $ym )
+                                <td class="text-center">
+                                    {{ $ymin[$index] }}
+                                </td>
+                            @endforeach
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
       </div>
     </div>
@@ -257,52 +266,53 @@
                 <img src="{{ asset('storage/images/7-1.png') }}" alt="">
                 <img src="{{ asset('storage/images/7-2.png') }}" alt="" class="ms-4">
             </div>
-            <table class="table table-bordered mt-4">
-                <thead>
-                    <tr>
-                        <th class="text-center">
-                            No
-                        </th>
-                        <th class="text-center">
-                            Kode
-                        </th>
-                        <th class="text-center">
-                            Nama Alternatif
-                        </th>
-                        <th class="text-center">
-                            D+
-                        </th>
-                        <th class="text-center">
-                            D-
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($dplusmin as $index => $dpm)
-                    @php
-                        $dpm_count = count($dpm);
-                    @endphp
+            <div class="table-responsive">
+                <table class="table table-bordered mt-4">
+                    <thead>
                         <tr>
-                            <td class="text-center">
-                                {{ $loop->iteration }}
-                            </td>
-                            <td class="text-center">
-                                {{ $dpm[0] }}
-                            </td>
-                            <td class="text-center">
-                                {{ $dpm[1] }}
-                            </td>
-                            <td class="text-center">
-                                {{ $dpm[$dpm_count - 2] }}
-                            </td>
-                            <td class="text-center">
-                                {{ $dpm[$dpm_count - 1] }}
-                            </td>
+                            {{-- <th class="text-center">
+                                No
+                            </th> --}}
+                            {{-- <th class="text-center">
+                                Kode
+                            </th> --}}
+                            <th class="text-center">
+                                Nama Alternatif
+                            </th>
+                            <th class="text-center">
+                                D+
+                            </th>
+                            <th class="text-center">
+                                D-
+                            </th>
                         </tr>
-                    @endforeach
-
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach ($dplusmin as $index => $dpm)
+                        @php
+                            $dpm_count = count($dpm);
+                        @endphp
+                            <tr>
+                                {{-- <td class="text-center">
+                                    {{ $loop->iteration }}
+                                </td> --}}
+                                {{-- <td class="text-center">
+                                    {{ $dpm[0] }}
+                                </td> --}}
+                                <td class="text-center">
+                                    {{ $dpm[1] }}
+                                </td>
+                                <td class="text-center">
+                                    {{ $dpm[$dpm_count - 2] }}
+                                </td>
+                                <td class="text-center">
+                                    {{ $dpm[$dpm_count - 1] }}
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
       </div>
     </div>
@@ -323,52 +333,51 @@
             <div class="text-center mt-4">
                 <img src="{{ asset('storage/images/8.png') }}" alt="">
             </div>
-            <table class="table table-bordered mt-4">
-                <thead>
-                    <tr>
-                        <th class="text-center">
-                            No
-                        </th>
-                        <th class="text-center">
-                            Kode
-                        </th>
-                        <th class="text-center">
-                            Nama Alternatif
-                        </th>
-                        <th class="text-center">
-                            Preferensi
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($dplusmin as $dpm)
-                        @php
-                            $dpm_count = count($dpm);
-                            $preferensi = round($dpm[$dpm_count - 1] / ($dpm[$dpm_count - 1] + $dpm[$dpm_count - 2]), 4);
-                        @endphp
+            <div class="table-responsive">
+                <table class="table table-bordered mt-4">
+                    <thead>
                         <tr>
-                            <td class="text-center">
-                                {{ $loop->iteration }}
-                            </td>
-                            <td class="text-center">
-                                {{ $dpm[0] }}
-                            </td>
-                            <td class="text-center">
-                                {{ $dpm[1] }}
-                            </td>
-                            <td class="text-center">
-                                {{ $preferensi }}
-                            </td>
+                            {{-- <th class="text-center">
+                                No
+                            </th> --}}
+                            {{-- <th class="text-center">
+                                Kode
+                            </th> --}}
+                            <th class="text-center">
+                                Nama Alternatif
+                            </th>
+                            <th class="text-center">
+                                Preferensi
+                            </th>
                         </tr>
-                    @endforeach
-
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach ($dplusmin as $dpm)
+                            @php
+                                $dpm_count = count($dpm);
+                                $preferensi = round($dpm[$dpm_count - 1] / ($dpm[$dpm_count - 1] + $dpm[$dpm_count - 2]), 4);
+                            @endphp
+                            <tr>
+                                {{-- <td class="text-center">
+                                    {{ $loop->iteration }}
+                                </td> --}}
+                                {{-- <td class="text-center">
+                                    {{ $dpm[0] }}
+                                </td> --}}
+                                <td class="text-center">
+                                    {{ $dpm[1] }}
+                                </td>
+                                <td class="text-center">
+                                    {{ $preferensi }}
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
       </div>
     </div>
 </div>
-
-
 
 @endsection

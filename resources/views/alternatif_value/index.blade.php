@@ -9,15 +9,16 @@
     <div class="card rounded-1">
         <div class="card-body">
             @if($alternatif_criterias)
-                <table class="table table-bordered">
+            <div class="table-responsive">
+                 <table class="table table-bordered">
                     <thead>
                         <tr>
                             <th scope="col" class="text-center">
                                 No
                             </th>
-                            <th scope="col" class="text-center">
+                            {{-- <th scope="col" class="text-center">
                                 Kode
-                            </th>
+                            </th> --}}
                             <th scope="col" class="text-center">
                                 Nama Alternatif
                             </th>
@@ -37,9 +38,9 @@
                                 <td class="text-center">
                                     {{ $loop->iteration }}
                                 </td>
-                                <td class="text-center">
+                                {{-- <td class="text-center">
                                     {{ $ac->alternatif->code }}
-                                </td>
+                                </td> --}}
                                 <td class="text-center">
                                     {{ $ac->alternatif->name }}
                                 </td>
@@ -64,6 +65,7 @@
                         @endforelse
                     </tbody>
                 </table>
+            </div>
             @endif
         </div>
     </div>
