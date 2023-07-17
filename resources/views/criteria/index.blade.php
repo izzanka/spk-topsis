@@ -9,14 +9,14 @@
     <div class="card rounded-1">
         <div class="card-header">
             <div class="row">
-                <div class="col-3">
+                {{-- <div class="col-3">
                     <div class="input-group input-group-sm">
                         <input type="text" class="form-control rounded-1" placeholder="Pencarian...">
                         <button class="btn btn-primary"><i class="bi bi-search me-1"></i> Cari</button>
                     </div>
-                </div>
-                <div class="col-2">
-                    <a class="btn btn-sm btn-success" href="{{ route('criterias.create') }}"><i class="bi bi-plus"></i> Tambah</a>
+                </div> --}}
+                <div class="col-5">
+                    <a class="btn btn-sm btn-success" href="{{ route('criterias.create') }}"><i class="bi bi-plus"></i> Tambah Data Kriteria</a>
                 </div>
             </div>
         </div>

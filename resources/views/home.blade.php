@@ -7,7 +7,8 @@
         <div class="text-center mb-4">
             <span class="fs-5"><b>PENERAPAN METODE TOPSIS UNTUK PEMILIHAN PERUMAHAN</b></span>
         </div>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia et aliquam minus alias neque ab, facere dolor velit delectus, aspernatur accusamus earum iste veniam. Facilis aperiam recusandae voluptatum. Id, temporibus.
+        Technique for Order of Preference by Similarity to Ideal Solution (TOPSIS) adalah metode analisis keputusan multikriteria.<br>
+        TOPSIS didasarkan pada konsep bahwa alternatif yang dipilih harus memiliki jarak geometris terpendek dari solusi ideal terbaik dan terpanjang dari solusi ideal terburuk.
         <hr>
         Kelompok 5<br>
         - Dava Alif Rahman David (2107412042)<br>

@@ -11,12 +11,12 @@
                 @csrf
                 @method('PUT')
 
-                <div class="mb-3">
+                {{-- <div class="mb-3">
                     <label for="code" class="form-label">Kode Alternatif</label>
                     <div class="input-group">
                         <input type="text" class="rounded-1 form-control" id="code" value="{{ $alternatif_criteria->alternatif->code }}" disabled>
                     </div>
-                </div>
+                </div> --}}
 
                 <div class="mb-3">
                     <label for="name" class="form-label">Nama Alternatif</label>
