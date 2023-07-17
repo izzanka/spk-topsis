@@ -27,7 +27,8 @@ class AlternatifValueController extends Controller
     public function update(Request $request, AlternatifCriteria $alternatif_criteria)
     {
         foreach($request->except(['_token','_method']) as $data => $value){
-            $valids[$data] = ['required','integer','min:1'];
+            $valids[$data] = ['required','numeric'];
+            $valids[$data] = ['numeric','gt:0'];
         }
 
         $validated = $request->validate($valids);

@@ -20,11 +20,11 @@
                                 Kode
                             </th> --}}
                             <th scope="col" class="text-center">
-                                Nama Alternatif
+                                Kode Alternatif
                             </th>
                             @foreach ($criterias as $criteria)
                             <th scope="col" class="text-center">
-                                {{ $criteria->name }}
+                                {{ $criteria->code }}
                             </th>
                             @endforeach
                             <th scope="col" class="text-center">
@@ -42,7 +42,7 @@
                                     {{ $ac->alternatif->code }}
                                 </td> --}}
                                 <td class="text-center">
-                                    {{ $ac->alternatif->name }}
+                                    {{ $ac->alternatif->code }}
                                 </td>
                                 @foreach ($criterias as $criteria)
                                     <td class="text-center">

@@ -11,19 +11,19 @@
                 @csrf
                 @method('PUT')
 
-                {{-- <div class="mb-3">
+                <div class="mb-3">
                     <label for="code" class="form-label">Kode Alternatif</label>
                     <div class="input-group">
                         <input type="text" class="rounded-1 form-control" id="code" value="{{ $alternatif_criteria->alternatif->code }}" disabled>
                     </div>
-                </div> --}}
+                </div>
 
-                <div class="mb-3">
+                {{-- <div class="mb-3">
                     <label for="name" class="form-label">Nama Alternatif</label>
                     <div class="input-group">
                         <input type="text" class="rounded-1 form-control" id="name" value="{{ $alternatif_criteria->alternatif->name }}" disabled>
                     </div>
-                </div>
+                </div> --}}
 
                 @foreach($criterias as $criteria)
                     @php
@@ -33,7 +33,7 @@
                     <div class="mb-3">
                         <label for="{{ $criteria_name }}" class="form-label">{{ $criteria->name }} <span class="text-danger">*</span></label>
                         <div class="input-group">
-                            <input type="number" class="rounded-1 form-control @error($criteria_name) is-invalid @enderror" id="{{ $criteria_name }}" value="{{ $alternatif_criteria[$criteria_name] }}" name="{{ $criteria_name }}">
+                            <input type="text" class="rounded-1 form-control @error($criteria_name) is-invalid @enderror" id="{{ $criteria_name }}" value="{{ $alternatif_criteria[$criteria_name] }}" name="{{ $criteria_name }}">
                             @error($criteria_name)
                                 <div class="invalid-feedback">
                                     {{ $message }}

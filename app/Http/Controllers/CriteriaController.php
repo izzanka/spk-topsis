@@ -30,7 +30,7 @@ class CriteriaController extends Controller
     {
         $validated = $request->validate([
             'code' => ['required','string','max:5','min:1','unique:criterias,code'],
-            'name' => ['required','string','max:25','unique:criterias,name'],
+            'name' => ['required','string','max:60','unique:criterias,name'],
             'attribute' => ['required','string'],
             'weight' => ['required','integer','min:1'],
         ]);
@@ -42,7 +42,7 @@ class CriteriaController extends Controller
             $fieldName = Str::slug($validated['name'], '_');
 
             Schema::table($this->table_name, function(Blueprint $table) use ($fieldName){
-                $table->integer($fieldName)->default(0);
+                $table->string($fieldName)->default(0);
             });
 
             return redirect()->route('criterias.index')->with('message',['text' => 'Data kriteria berhasil disimpan.', 'class' => 'success']);
@@ -61,7 +61,7 @@ class CriteriaController extends Controller
     public function update(Request $request, Criteria $criteria)
     {
         $validated = $request->validate([
-            'name' => ['required','string','max:25', Rule::unique('criterias')->ignore($criteria->id)],
+            'name' => ['required','string','max:60', Rule::unique('criterias')->ignore($criteria->id)],
             'attribute' => ['required','string'],
             'weight' => ['required','integer','min:1'],
         ]);

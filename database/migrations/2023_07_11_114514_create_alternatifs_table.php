@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('alternatifs', function (Blueprint $table) {
             $table->id();
             $table->string('code', 5)->unique();
-            $table->string('name', 25)->unique();
+            $table->string('name', 60)->unique();
             $table->timestamps();
         });
     }

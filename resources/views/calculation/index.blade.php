@@ -25,11 +25,11 @@
                                 Kode
                             </th> --}}
                             <th scope="col" class="text-center">
-                                Nama Alternatif
+                                Kode Alternatif
                             </th>
                             @foreach ($kriteria as $k)
                             <th scope="col" class="text-center">
-                                {{ $k['name']}}
+                                {{ $k['code']}}
                             </th>
                             @endforeach
                         </tr>
@@ -44,7 +44,7 @@
                                     {{ $ak[0] }}
                                 </td> --}}
                                 <td class="text-center">
-                                    {{ $ak[1] }}
+                                    {{ $ak[0] }}
                                 </td>
                                 @for ($i=0; $i < count($kriteria); $i++)
                                     <td class="text-center">
@@ -88,11 +88,11 @@
                                 Kode
                             </th> --}}
                             <th scope="col" class="text-center">
-                                Nama Alternatif
+                                Kode Alternatif
                             </th>
                             @foreach ($kriteria as $k)
                             <th scope="col" class="text-center">
-                                {{ $k['name']}}
+                                {{ $k['code']}}
                             </th>
                             @endforeach
                         </tr>
@@ -107,7 +107,7 @@
                                     {{ $n[0] }}
                                 </td> --}}
                                 <td class="text-center">
-                                    {{ $n[1] }}
+                                    {{ $n[0] }}
                                 </td>
                                 @for ($i=0; $i < count($kriteria); $i++)
                                     <td class="text-center">
@@ -161,11 +161,11 @@
                                 Kode
                             </th> --}}
                             <th scope="col" class="text-center">
-                                Nama Alternatif
+                                Kode Alternatif
                             </th>
                             @foreach ($kriteria as $k)
                             <th scope="col" class="text-center">
-                                {{ $k['name']}}
+                                {{ $k['code']}}
                             </th>
                             @endforeach
                         </tr>
@@ -180,7 +180,7 @@
                                     {{ $nb[0] }}
                                 </td> --}}
                                 <td class="text-center">
-                                    {{ $nb[1] }}
+                                    {{ $nb[0] }}
                                 </td>
                                 @for ($i=0; $i < count($kriteria); $i++)
                                     <td class="text-center">
@@ -220,7 +220,7 @@
                             <th></th>
                             @foreach ($kriteria as $k)
                             <th scope="col" class="text-center">
-                                {{ $k['name']}}
+                                {{ $k['code']}}
                             </th>
                             @endforeach
                         </tr>
@@ -277,7 +277,7 @@
                                 Kode
                             </th> --}}
                             <th class="text-center">
-                                Nama Alternatif
+                                Kode Alternatif
                             </th>
                             <th class="text-center">
                                 D+
@@ -300,7 +300,7 @@
                                     {{ $dpm[0] }}
                                 </td> --}}
                                 <td class="text-center">
-                                    {{ $dpm[1] }}
+                                    {{ $dpm[0] }}
                                 </td>
                                 <td class="text-center">
                                     {{ $dpm[$dpm_count - 2] }}
@@ -344,7 +344,7 @@
                                 Kode
                             </th> --}}
                             <th class="text-center">
-                                Nama Alternatif
+                                Kode Alternatif
                             </th>
                             <th class="text-center">
                                 Preferensi
@@ -365,7 +365,7 @@
                                     {{ $dpm[0] }}
                                 </td> --}}
                                 <td class="text-center">
-                                    {{ $dpm[1] }}
+                                    {{ $dpm[0] }}
                                 </td>
                                 <td class="text-center">
                                     {{ $preferensi }}

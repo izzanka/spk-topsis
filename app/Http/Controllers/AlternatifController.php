@@ -24,7 +24,7 @@ class AlternatifController extends Controller
     {
         $validated = $request->validate([
             'code' => ['required','string','max:5','min:1','unique:alternatifs,code'],
-            'name' => ['required','string','max:25','unique:alternatifs,name']
+            'name' => ['required','string','max:60','unique:alternatifs,name']
         ]);
 
         try {
@@ -50,7 +50,7 @@ class AlternatifController extends Controller
     public function update(Request $request, Alternatif $alternatif)
     {
         $validated = $request->validate([
-            'name' => ['required','string','max:25', Rule::unique('alternatifs')->ignore($alternatif->id)]
+            'name' => ['required','string','max:60', Rule::unique('alternatifs')->ignore($alternatif->id)]
         ]);
 
         try {

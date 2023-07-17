@@ -26,7 +26,7 @@ class CalculationController extends Controller
     public function index()
     {
         $alternatif_criterias = AlternatifCriteria::get();
-        $criterias = Criteria::select(['name', 'weight', 'attribute'])->get();
+        $criterias = Criteria::select(['code','name', 'weight', 'attribute'])->get();
         $alternatifs = Alternatif::get();
 
         if($alternatif_criterias->isEmpty()){
