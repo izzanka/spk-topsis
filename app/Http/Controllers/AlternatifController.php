@@ -11,7 +11,7 @@ class AlternatifController extends Controller
 {
     public function index()
     {
-        $alternatifs = Alternatif::get();
+        $alternatifs = Alternatif::where('user_id', auth()->id())->paginate(15);
         return view('alternatif.index', compact('alternatifs'));
     }
 
@@ -22,16 +22,21 @@ class AlternatifController extends Controller
 
     public function store(Request $request)
     {
-        $validated = $request->validate([
+        $request->validate([
             'code' => ['required','string','max:5','min:1','unique:alternatifs,code'],
             'name' => ['required','string','max:60','unique:alternatifs,name']
         ]);
 
         try {
 
-            $alternatif = Alternatif::create($validated);
+            $alternatif = Alternatif::create([
+                'user_id' => auth()->id(),
+                'code' => $request->code,
+                'name' => $request->name,
+            ]);
 
             AlternatifCriteria::create([
+                'user_id' => auth()->id(),
                 'alternatif_id' => $alternatif->id,
             ]);
 
@@ -44,11 +49,21 @@ class AlternatifController extends Controller
 
     public function edit(Alternatif $alternatif)
     {
+        if($alternatif->user_id != auth()->id())
+        {
+            return back();
+        }
+
         return view('alternatif.edit', compact('alternatif'));
     }
 
     public function update(Request $request, Alternatif $alternatif)
     {
+        if($alternatif->user_id != auth()->id())
+        {
+            return back();
+        }
+
         $validated = $request->validate([
             'name' => ['required','string','max:60', Rule::unique('alternatifs')->ignore($alternatif->id)]
         ]);
@@ -66,6 +81,11 @@ class AlternatifController extends Controller
 
     public function destroy(Alternatif $alternatif)
     {
+        if($alternatif->user_id != auth()->id())
+        {
+            return back();
+        }
+
         try {
 
             $alternatif->delete();

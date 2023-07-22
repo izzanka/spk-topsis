@@ -6,7 +6,7 @@
     <span class="fs-4">Data Nilai Alternatif</span>
     <hr>
     @include('layout.alert')
-    <div class="card rounded-1">
+    <div class="card rounded-1 mb-5">
         <div class="card-body">
             @if($alternatif_criterias)
             <div class="table-responsive">

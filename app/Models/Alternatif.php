@@ -14,4 +14,9 @@ class Alternatif extends Model
     {
         return $this->hasMany(AlternatifCriteria::class, 'alternatif_id');
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

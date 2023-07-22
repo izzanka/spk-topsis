@@ -3,12 +3,12 @@
 @section('content')
 
 <div class="mt-2">
-    <span class="fs-4">Login</span>
+    <span class="fs-4">Register</span>
     <hr>
     @include('layout.alert')
     <div class="row">
         <div class="col-4">
-            <form action="{{ route('login.store') }}" method="POST">
+            <form action="{{ route('register.store') }}" method="POST">
                 @csrf
                 <div class="mb-3">
                     <label for="username" class="form-label">Username <span class="text-danger">*</span></label>
@@ -32,11 +32,11 @@
                       @enderror
                     </div>
                 </div>
-                <button class="btn btn-primary btn-sm" type="submit"> Login</button>
+                <button class="btn btn-primary btn-sm" type="submit"> Register</button>
             </form>
-            {{-- <div class="mt-2">
-                <small>Doesn't have an account? <a href="{{ route('register') }}">register</a> here</small>
-            </div> --}}
+            <div class="mt-2">
+                <small>Already have an account? <a href="{{ route('login') }}">login</a> here</small>
+            </div>
         </div>
     </div>
 </div>

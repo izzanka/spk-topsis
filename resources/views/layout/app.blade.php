@@ -32,10 +32,12 @@
 
             <ul class="nav nav-pills">
                 @guest
+                    {{-- <li class="nav-item"><a href="{{ route('register') }}" class="nav-link {{ request()->route()->named('register') ? 'active' : '' }}">Register</a></li> --}}
                     <li class="nav-item"><a href="{{ route('login') }}" class="nav-link {{ request()->route()->named('login') ? 'active' : '' }}">Login</a></li>
                 @else
-                    <li class="nav-item"><a href="{{ route('alternatifs.index') }}" class="nav-link {{ request()->route()->named('alternatifs.index') || request()->route()->named('alternatifs.create') || request()->route()->named('alternatifs.edit') ? 'active' : '' }}">Alternatif</a></li>
-                    <li class="nav-item"><a href="{{ route('criterias.index') }}" class="nav-link {{ request()->route()->named('criterias.index') || request()->route()->named('criterias.create') || request()->route()->named('criterias.edit') ? 'active' : '' }}">Kriteria</a></li>
+                    <x-alternatif-component/>
+                    <x-criteria-component/>
+                    <x-sub-criteria-component/>
                     <li class="nav-item"><a href="{{ route('alternatif.values.index') }}" class="nav-link {{ request()->route()->named('alternatif.values.index') || request()->route()->named('alternatif.values.edit') ? 'active' : '' }}">Nilai Alternatif</a></li>
                     <li class="nav-item"><a href="{{ route('calculations.index') }}" class="nav-link {{ request()->route()->named('calculations.index') ? 'active' : '' }}">Perhitungan</a></li>
                     <li class="nav-item"><a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>

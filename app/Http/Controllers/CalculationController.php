@@ -25,9 +25,9 @@ class CalculationController extends Controller
 
     public function index()
     {
-        $alternatif_criterias = AlternatifCriteria::get();
-        $criterias = Criteria::select(['code','name', 'weight', 'attribute'])->get();
-        $alternatifs = Alternatif::get();
+        $alternatif_criterias = AlternatifCriteria::where('user_id', auth()->id())->get();
+        $criterias = Criteria::where('user_id', auth()->id())->select(['code','name', 'weight', 'attribute'])->get();
+        $alternatifs = Alternatif::where('user_id', auth()->id())->get();
 
         if($alternatif_criterias->isEmpty()){
             return redirect()->route('alternatif.values.index')->with('message',['text' => 'Harap masukkan data nilai alternatif terlebih dahulu.', 'class' => 'warning']);

@@ -5,19 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Criteria extends Model
+class SubCriteria extends Model
 {
     use HasFactory;
     protected $guarded = [];
 
-    public function alternatif_criterias()
+    public function criteria()
     {
-        return $this->hasMany(AlternatifCriteria::class);
-    }
-
-    public function sub_criterias()
-    {
-        return $this->hasMany(SubCriteria::class);
+        return $this->belongsTo(Criteria::class);
     }
 
     public function user()

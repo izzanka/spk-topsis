@@ -5,6 +5,7 @@ use App\Http\Controllers\AlternatifValueController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CalculationController;
 use App\Http\Controllers\CriteriaController;
+use App\Http\Controllers\SubCriteriaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,6 +23,9 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
+// Route::get('/register', [AuthController::class, 'register_index'])->name('register');
+// Route::post('/register', [AuthController::class, 'register_store'])->name('register.store');
+
 Route::get('/login', [AuthController::class, 'login_index'])->name('login');
 Route::post('/login', [AuthController::class, 'login_store'])->name('login.store');
 
@@ -29,6 +33,7 @@ Route::middleware(['auth'])->group(function(){
 
     Route::resource('alternatifs', AlternatifController::class);
     Route::resource('criterias', CriteriaController::class);
+    Route::resource('sub_criterias', SubCriteriaController::class);
 
     Route::get('/alternatif/values', [AlternatifValueController::class, 'index'])->name('alternatif.values.index');
     Route::get('/alternatif/values/{alternatif_criteria}', [AlternatifValueController::class, 'edit'])->name('alternatif.values.edit');

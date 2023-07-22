@@ -17,7 +17,7 @@ class CriteriaController extends Controller
 
     public function index()
     {
-        $criterias = Criteria::get();
+        $criterias = Criteria::where('user_id', auth()->id())->paginate(15);
         return view('criteria.index', compact('criterias'));
     }
 
@@ -28,7 +28,7 @@ class CriteriaController extends Controller
 
     public function store(Request $request)
     {
-        $validated = $request->validate([
+        $request->validate([
             'code' => ['required','string','max:5','min:1','unique:criterias,code'],
             'name' => ['required','string','max:60','unique:criterias,name'],
             'attribute' => ['required','string'],
@@ -37,9 +37,15 @@ class CriteriaController extends Controller
 
         try {
 
-            Criteria::create($validated);
+            Criteria::create([
+                'user_id' => auth()->id(),
+                'code' => $request->code,
+                'name' => $request->name,
+                'attribute' => $request->attribute,
+                'weight' => $request->weight,
+            ]);
 
-            $fieldName = Str::slug($validated['name'], '_');
+            $fieldName = Str::slug($request->name, '_');
 
             Schema::table($this->table_name, function(Blueprint $table) use ($fieldName){
                 $table->string($fieldName)->default(0);
@@ -54,12 +60,22 @@ class CriteriaController extends Controller
 
     public function edit(Criteria $criteria)
     {
+        if($criteria->user_id != auth()->id())
+        {
+            return back();
+        }
+
         $attributes = collect(['Cost','Profit']);
         return view('criteria.edit', compact('criteria','attributes'));
     }
 
     public function update(Request $request, Criteria $criteria)
     {
+        if($criteria->user_id != auth()->id())
+        {
+            return back();
+        }
+
         $validated = $request->validate([
             'name' => ['required','string','max:60', Rule::unique('criterias')->ignore($criteria->id)],
             'attribute' => ['required','string'],
@@ -89,6 +105,11 @@ class CriteriaController extends Controller
 
     public function destroy(Criteria $criteria)
     {
+        if($criteria->user_id != auth()->id())
+        {
+            return back();
+        }
+
         try {
 
             $fieldName = Str::slug(strtolower($criteria->name), '_');

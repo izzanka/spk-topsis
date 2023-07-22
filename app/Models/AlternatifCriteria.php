@@ -24,4 +24,9 @@ class AlternatifCriteria extends Model
         return $this->belongsTo(Period::class);
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }

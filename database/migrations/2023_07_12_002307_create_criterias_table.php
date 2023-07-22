@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('criterias', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained();
             $table->string('code', 5)->unique();
             $table->string('name', 60)->unique();
             $table->enum('attribute', ['Cost','Profit']);

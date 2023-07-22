@@ -318,7 +318,7 @@
     </div>
 </div>
 
-<div class="mt-3 mb-4">
+<div class="mt-3 mb-5">
     <div class="card" x-data="{ open: false }">
       <div class="card-body">
         <div class="row" @click="open = ! open" type="button">
@@ -340,11 +340,11 @@
                             {{-- <th class="text-center">
                                 No
                             </th> --}}
-                            {{-- <th class="text-center">
-                                Kode
-                            </th> --}}
                             <th class="text-center">
                                 Kode Alternatif
+                            </th>
+                            <th class="text-center">
+                                Nama Alternatif
                             </th>
                             <th class="text-center">
                                 Preferensi
@@ -361,11 +361,11 @@
                                 {{-- <td class="text-center">
                                     {{ $loop->iteration }}
                                 </td> --}}
-                                {{-- <td class="text-center">
-                                    {{ $dpm[0] }}
-                                </td> --}}
                                 <td class="text-center">
                                     {{ $dpm[0] }}
+                                </td>
+                                <td class="text-center">
+                                    {{ $dpm[1] }}
                                 </td>
                                 <td class="text-center">
                                     {{ $preferensi }}

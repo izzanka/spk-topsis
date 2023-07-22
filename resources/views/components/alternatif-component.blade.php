@@ -1,0 +1,1 @@
+<li class="nav-item"><a href="{{ route('alternatifs.index') }}" class="nav-link btn {{ request()->route()->named('alternatifs.index') || request()->route()->named('alternatifs.create') || request()->route()->named('alternatifs.edit') ? 'active' : '' }}"> Alternatif <span class="badge text-bg-secondary">{{ $count_alternatif }}</span></a></li>

@@ -6,7 +6,7 @@
     <span class="fs-4">Data Kriteria</span>
     <hr>
     @include('layout.alert')
-    <div class="card rounded-1">
+    <div class="card rounded-1 mb-5">
         <div class="card-header">
             <div class="row">
                 {{-- <div class="col-3">
@@ -80,6 +80,9 @@
                     @endforelse
                 </tbody>
             </table>
+            <div>
+                {{ $criterias->links() }}
+            </div>
         </div>
     </div>
 </div>

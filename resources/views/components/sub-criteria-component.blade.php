@@ -1,0 +1,1 @@
+<li class="nav-item"><a href="{{ route('sub_criterias.index') }}" class="nav-link {{ request()->route()->named('sub_criterias.index') || request()->route()->named('sub_criterias.create') || request()->route()->named('sub_criterias.edit') ? 'active' : '' }}">Sub Kriteria <span class="badge text-bg-secondary">{{ $count_sub_criteria }}</span></a></li>
