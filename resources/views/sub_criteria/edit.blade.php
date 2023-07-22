@@ -28,10 +28,22 @@
                         </select>
                     </div>
                 </div>
-                <div class="mb-3">
+                {{-- <div class="mb-3">
                     <label for="name" class="form-label">Nama Sub Kriteria <span class="text-danger">*</span></label>
                     <div class="input-group">
                       <input type="text" class="rounded-1 form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ $sub_criteria->name }}">
+                      @error('name')
+                        <span class="invalid-feedback">
+                            {{ $message }}
+                        </span>
+                      @enderror
+                    </div>
+                </div> --}}
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nama Sub Kriteria <span class="text-danger">*</span></label>
+                    <div class="input-group">
+                      {{-- <input type="text" class="rounded-1 form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}"> --}}
+                      <textarea name="name" id="name" cols="30" rows="5" class="form-control @error('name') is-invalid @enderror">{{ $sub_criteria->name }}</textarea>
                       @error('name')
                         <span class="invalid-feedback">
                             {{ $message }}
