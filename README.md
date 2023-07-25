@@ -7,16 +7,11 @@ SPK TOPSIS is a Decision Suport System (DSS) website using TOPSIS method
 
 ## Built With
 
-### Ball Stack
+### Bal Stack
 * [**(B)** Bootstrap](https://getbootstrap.com)
 * [**(A)** Alpinejs](https://alpinejs.dev)
 * [**(L)** Laravel](https://laravel.com)
 
-### Package
-
-### Api
-
-### UI Kit
-
 ## Overview
+
 
