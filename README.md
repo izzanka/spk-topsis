@@ -22,7 +22,7 @@ SPK TOPSIS is a Decision Suport System (DSS) website using TOPSIS method
 ![ss4](https://github.com/izzanka/spk_topsis/assets/59280562/92068e33-5389-412d-b5d9-0f050056a823)
 
 
-![ss4](https://github.com/izzanka/spk_topsis/assets/59280562/c602b95a-70af-4e1f-be0f-8ffe3dff5c3d)
+![ss5](https://github.com/izzanka/spk_topsis/assets/59280562/a06ead02-1233-4d42-b678-c4a4d87b5d90)
 
 
 ![ss6](https://github.com/izzanka/spk_topsis/assets/59280562/35823ed4-98e6-4fd1-b2e0-9c2767d8bf5b)
