@@ -3,7 +3,7 @@
 </p>
 
 ## About 
-SPK TOPSIS is a Decision Suport System (DSS) website using TOPSIS method <br>
+Decision Suport System (DSS) website using TOPSIS method <br>
 Username: user <br>
 Password: password
 
